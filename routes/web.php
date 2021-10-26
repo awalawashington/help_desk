@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IssueController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admins\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
+
 use App\Http\Controllers\Students\UserController;
-
 use App\Http\Controllers\Students\CourseController;
-use App\Http\Controllers\Students\SettingsController;
 
+use App\Http\Controllers\Students\SettingsController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
@@ -60,8 +60,8 @@ Route::prefix('student')->name('student.')->group(function(){
         Route::post('/settings/password',[SettingsController::class ,'updatePassword'])->name('settings.password');
         Route::post('/settings/profile',[SettingsController::class ,'updateProfile'])->name('settings.profile');
 
-        Route::get('/help',[IssueController::class ,'index'])->name('help');
-        Route::post('/help/store',[IssueController::class ,'store'])->name('help.store');
+        Route::get('/help',[HelpController::class ,'index'])->name('help');
+        Route::post('/help/store',[HelpController::class ,'store'])->name('help.store');
 
         Route::view('/course','students.students.course')->name('course');
 

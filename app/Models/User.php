@@ -54,9 +54,9 @@ class User extends Authenticatable
     }
 
 
-    public function issues()
+    public function helps()
     {
-        return $this->hasMany(Issue::class);
+        return $this->hasMany(Help::class);
     }
 
     

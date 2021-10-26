@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SchoolDepartment;
 
-class IssueController extends Controller
+class HelpController extends Controller
 {
     public function index()
     {

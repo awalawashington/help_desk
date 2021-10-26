@@ -23,8 +23,8 @@ class Faculty extends Model
         return $this->morphMany(Admin::class, 'adminable');
     }
 
-    public function issues()
+    public function helps()
     {
-        return $this->morphMany(Issue::class, 'issuable');
+        return $this->morphMany(Help::class, 'issuable');
     }
 }

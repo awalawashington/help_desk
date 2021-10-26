@@ -50,9 +50,9 @@ class Admin extends Authenticatable
         return $this->morphsTo();
     }
 
-    public function issues()
+    public function helps()
     {
-        return $this->hasMany(Issue::class);
+        return $this->hasMany(Help::class);
     }
 
 }
