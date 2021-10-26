@@ -68,22 +68,36 @@
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Details</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Issue</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @if(auth()->user()->tumsa_bursary !== NULL)
+                    @if(auth()->user()->helps !== NULL)
+                    @foreach(auth()->user()->helps as $help)
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Bursary</td>
-                        <td><a href="#" class="text-primary">Application</a></td>
-                        <td>{{auth()->user()->tumsa_bursary->ammount_requested}}/=</td>
-                        <td><span class="badge bg-success">Under Review</span></td>
+                        <td>
+                          @if($help->helpable_type == 'App\Models\CourseDepartment')
+                            {{auth()->user()->course->course->course_department->name}} Department
+                          @elseif($help->helpable_type == 'App\Models\Faculty')
+                            {{auth()->user()->course->course->course_department->faculty->name}}
+                          @else
+                            {{$help->helpable_type::find($help->helpable_id)->name}}
+                          @endif
+                        </td>
+                        <td><a href="{{route('student.issue', [$help->id])}}" class="text-primary">{{$help->title}}</a></td>
+                        <td>{{$help->created_at->diffForHumans()}}</td>
+                        <td>
+                          @if($help->response == NULL)
+                            <span class="badge bg-secondary">Pending</span>
+                          @else
+                            <span class="badge bg-success">Responded</span>
+                          @endif
+                        </td>
                       </tr>
+                    @endforeach
                     @endif
                       
                     </tbody>

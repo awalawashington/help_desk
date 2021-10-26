@@ -26,8 +26,8 @@
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <h2>{{auth()->user('admin')->name}}</h2>
-              <h3>{{auth()->user('')->position}}</h3>
+              <h2>{{$issue->user->sir_name}} {{$issue->user->other_names}}</h2>
+              <h3>{{$issue->user->admission_number}}</h3>
             </div>
           </div>
 
@@ -45,7 +45,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Respond</button>
                 </li>
 
               </ul>
@@ -70,62 +70,56 @@
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   
-                  <h5 class="card-title">Profile Details</h5>
+                  <h5 class="card-title">Issue Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">{{auth()->user('admin')->name}}</div>
+                    <div class="col-lg-3 col-md-4 label">Title</div>
+                    <div class="col-lg-9 col-md-8">{{$issue->title}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone number</div>
-                    <div class="col-lg-9 col-md-8">{{auth()->user('admin')->phone_number}}</div>
+                    <div class="col-lg-3 col-md-4 label">Description</div>
+                    <div class="col-lg-9 col-md-8">{{$issue->body}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">{{auth()->user('admin')->email}}</div>
+                    <div class="col-lg-3 col-md-4 label">Attachment</div>
+                    <div class="col-lg-9 col-md-8"> <a href="{{asset('student/evidence/'.$issue->evidence)}}" target="_blank">View</a></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Time</div>
+                    <div class="col-lg-9 col-md-8">{{$issue->created_at->diffForHumans()}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Response</div>
+                    <div class="col-lg-9 col-md-8">{{$issue->response}}</div>
                   </div>    
 
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form action="{{ route('admin.settings.password') }}" method="post" role="form" class="form">
+                  <form action="{{ route('admin.help.store') }}" method="post" role="form" class="form">
                     @csrf
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="current_password" type="password" class="form-control">
-                      </div>
-                      @error('current_password')
+                    <input type="hidden" name="issue" value="{{$issue->id}}">
+                    <div class="form-group mb-3">
+                      <label for="exampleFormControlTextarea1">Response</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="response">
+                        {{$issue->response}}
+                        </textarea>
+                     </div>
+                      @error('response')
                           <div class="my-3">
                               <div class="text-danger">{{ $message }}</div>
                           </div>
                       @enderror
                     </div>
 
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="newPassword">
-                      </div>
-                      @error('password')
-                          <div class="my-3">
-                              <div class="text-danger">{{ $message }}</div>
-                          </div>
-                      @enderror
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password_confirmation" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
+                      <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                   </form><!-- End Change Password Form -->
 

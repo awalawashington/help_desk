@@ -18,12 +18,13 @@ class AdminSeeder extends Seeder
     {
         DB::table('admins')->insert([
             'name' => 'Washington Awala',
-            'email' => 'washingtonawala32@gmail.com',
+            'email' => 'hillarynyamuche@gmail.com',
             'email_verified_at' => Carbon::now(),
             'phone_number' => '+2547917472452',
             'adminable_type' => 'App\Models\SchoolDepartment',
             'adminable_id' => '1',
-            'password' => Hash::make('Awala@2021'),
+            'created_at' => Carbon::now(),
+            'password' => Hash::make('hillarynyamuche@gmail.com'),
         ]);
     }
 }

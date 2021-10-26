@@ -16,7 +16,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="/" class="logo d-flex align-items-center w-auto">
                   <img src="{{asset('portal/assets/img/logo.png')}}" alt="">
-                  <span class="d-none d-lg-block">TUMSA</span>
+                  <span class="d-none d-lg-block">TUM HELP DESK</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -61,7 +61,7 @@
               </div>
 
               <div class="credits">
-                Developed by <a href="https://www.facebook.com/awalatechincorporation">AwalaTech Incorporation</a>
+                Developed by <a href="#">HILLARY NYAMUCHE</a>
               </div>
 
             </div>

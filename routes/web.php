@@ -62,6 +62,7 @@ Route::prefix('student')->name('student.')->group(function(){
 
         Route::get('/help',[HelpController::class ,'index'])->name('help');
         Route::post('/help/store',[HelpController::class ,'store'])->name('help.store');
+        Route::get('/issue/{id}',[HelpController::class ,'issue'])->name('issue');
 
         Route::view('/course','students.students.course')->name('course');
 
@@ -78,8 +79,17 @@ Route::prefix('admin')->name('admin.')->group(function(){
     });
 
     Route::middleware(['auth:admin'])->group(function(){
-        Route::view('/dashboard','admin.admin.dashboard')->name('dashboard');
+        Route::get('/dashboard',[AdminController::class ,'index'])->name('dashboard');
         Route::get('/logout',[LoginController::class,'adminLogout'])->name('logout');
+
+        Route::get('/settings',[AdminController::class ,'settingsView'])->name('settings');
+        Route::post('/settings/password',[AdminController::class ,'updatePassword'])->name('settings.password');
+
+        Route::post('/help/store',[AdminController::class ,'store'])->name('help.store');
+        Route::get('/issue/{id}',[AdminController::class ,'issue'])->name('issue');
+
+        Route::post('/admins/store',[AdminController::class ,'storeAdmin'])->name('admins.store');
+        Route::get('/admins',[AdminController::class ,'adminsView'])->name('admins');
     });
 
 });

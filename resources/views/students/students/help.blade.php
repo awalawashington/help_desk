@@ -58,7 +58,7 @@
                 @endif
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <!-- Change Password Form -->
-                  <form action="{{ route('student.help.store') }}" method="post" role="form" class="form">
+                  <form action="{{ route('student.help.store') }}" method="post" role="form" class="form"  enctype="multipart/form-data">
                     @csrf
                     <div class="col-lg-12">
                       <label for="yourUsername" class="form-label">Select department</label>

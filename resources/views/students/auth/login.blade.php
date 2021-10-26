@@ -16,7 +16,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="/" class="logo d-flex align-items-center w-auto">
                   <img src="{{asset('portal/assets/img/logo.png')}}" alt="">
-                  <span class="d-none d-lg-block">TUMSA</span>
+                  <span class="d-none d-lg-block">TUM HELP DESK</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -70,13 +70,16 @@
                     <div class="col-12">
                       <p class="small mb-0"><a href="{{ route('student.password.email') }}">Forgot password?</a></p>
                     </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Admin? <a href="{{ route('admin.login') }}">Login</a></p>
+                    </div>
                   </form>
 
                 </div>
               </div>
 
               <div class="credits">
-                Developed by <a href="https://www.facebook.com/awalatechincorporation">AwalaTech Incorporation</a>
+              Developed by <a href="#">HILLARY NYAMUCHE</a>
               </div>
 
             </div>

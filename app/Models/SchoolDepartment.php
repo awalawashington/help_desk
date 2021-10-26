@@ -21,7 +21,7 @@ class SchoolDepartment extends Model
 
     public function helps()
     {
-        return $this->morphMany(Help::class, 'issuable');
+        return $this->morphMany(Help::class, 'helpable');
     }
 
 }

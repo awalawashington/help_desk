@@ -1,10 +1,10 @@
  <!-- ======= Footer ======= -->
  <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>TUMSA 2020/2021</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>TUM</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
      
-    Developed by <a href="https://www.facebook.com/awalatechincorporation">AwalaTech Incorporation</a>
+    Developed by <a href="#">HILLARY NYAMUCHE</a>
     </div>
   </footer><!-- End Footer -->

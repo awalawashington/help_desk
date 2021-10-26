@@ -19,7 +19,7 @@ class Help extends Model
 
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -34,7 +34,7 @@ class Help extends Model
         return $this->belongsTo(SchoolDepartment::class);
     }
 
-    public function issuable()
+    public function helpable()
     {
         return $this->morphsTo();
     }

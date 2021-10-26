@@ -47,7 +47,7 @@ class Admin extends Authenticatable
 
     public function adminable()
     {
-        return $this->morphsTo();
+        return $this->morphTo();
     }
 
     public function helps()
